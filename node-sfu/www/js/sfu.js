@@ -11,7 +11,8 @@ const name = href.searchParams.get("name");
 //Get video
 const nopublish = href.searchParams.has("nopublish");
 //Get ws url from navigaro url
-const url = "wss://" + href.host + '/wss/';
+// const url = "wss://" + href.host + '/wss/';
+const url = "ws://" + href.host;
 
 if (href.searchParams.has("video"))
 	switch (href.searchParams.get("video").toLowerCase()) {
@@ -75,8 +76,12 @@ function connect(url, roomId, name) {
 	var pc = new RTCPeerConnection({
 		bundlePolicy: "max-bundle",
 		rtcpMuxPolicy: "require",
-		sdpSemantics: "plan-b"
-
+		sdpSemantics: "plan-b",
+		'iceServers': [{
+			'urls': ['stun:120.79.30.125:3478'],
+			'credential': "123456",
+			'username': "ggl"
+		}]
 	});
 
 	//Create room url
