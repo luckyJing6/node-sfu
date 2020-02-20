@@ -27,6 +27,7 @@ MediaServer.enableUltraDebug(false);
 // const ip = process.argv[2];
 
 const ip = '127.0.0.1'
+// const ip = '192.168.0.104'
 
 //The list of sport castings
 const rooms = new Map();

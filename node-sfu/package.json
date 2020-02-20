@@ -10,9 +10,12 @@
     "transaction-manager": "^2",
     "websocket": "^1.0.24"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cross-env NODE-ENV=development node index.js"
   },
   "repository": {
     "type": "git",

@@ -11,8 +11,8 @@ const name = href.searchParams.get("name");
 //Get video
 const nopublish = href.searchParams.has("nopublish");
 //Get ws url from navigaro url
-const url = "wss://" + href.host + '/wss/';
-// const url = "ws://" + href.host;
+const isDev = true
+const url = isDev ? "ws://" + href.host : "wss://" + href.host + '/wss/';
 
 if (href.searchParams.has("video"))
 	switch (href.searchParams.get("video").toLowerCase()) {
@@ -47,6 +47,7 @@ if (href.searchParams.has("video"))
 
 
 function addVideoForStream(stream, muted) {
+	console.log(stream, 'video stream')
 	//Create new video element
 	const video = document.createElement("video");
 	//Set same id
@@ -76,12 +77,7 @@ function connect(url, roomId, name) {
 	var pc = new RTCPeerConnection({
 		bundlePolicy: "max-bundle",
 		rtcpMuxPolicy: "require",
-		sdpSemantics: "plan-b",
-		'iceServers': [{
-			'urls': ['stun:120.79.30.125:3478'],
-			'credential': "123456",
-			'username': "ggl"
-		}]
+		sdpSemantics: "plan-b"
 	});
 
 	//Create room url
