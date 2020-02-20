@@ -11,7 +11,7 @@ const name = href.searchParams.get("name");
 //Get video
 const nopublish = href.searchParams.has("nopublish");
 //Get ws url from navigaro url
-const isDev = true
+const isDev = false
 const url = isDev ? "ws://" + href.host : "wss://" + href.host + '/wss/';
 
 if (href.searchParams.has("video"))
